@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <title>TODO List - Spring Boot API Client</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2> Шинэ даалгавар нэмэх</h2>
+        <form id="todoForm">
+            <input type="text" id="title" placeholder="Даалгаварын нэр" required>
+            <textarea id="description" placeholder="Тайлбар" required></textarea>
+            
+            <div class="date-group">
+                <label for="startDate">Эхлэх Огноо:</label>
+                <input type="date" id="startDate" required>
+                <label for="dueDate">Дуусгах Огноо:</label>
+                <input type="date" id="dueDate" required>
+            </div>
+
+            <button type="submit">Даалгавар Хадгалах</button>
+        </form>
+
+        <hr>
+
+        <h2> Одоо Төлөвлөсөн Даалгаварууд</h2>
+        <div id="todoList">
+            </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
