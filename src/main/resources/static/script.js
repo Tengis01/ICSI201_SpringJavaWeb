@@ -23,8 +23,8 @@ async function fetchTodos() {
         renderTodos(todos);
 
     } catch (error) {
-        console.error('Daalgavruudiig tatahad aldaa garlaa:', error);
-        todoList.innerHTML = '<p>Daalgavruudiig tatah bolomjgui bna. Spring Boot server ajillaj baigaa esehiig shalgana uu.</p>';
+        console.error('Даалгавруудыг татхад алдаа гарлаа:', error);
+        todoList.innerHTML = '<p>Даалгавруудыг татах боломжгүй байна. Spring Boot сервер ажиллаж байгаа эсэхийг шалгана уу.</p>';
     }
 }
 
@@ -33,7 +33,7 @@ function renderTodos(todos) {
     todoList.innerHTML = '';
 
     if (!todos || todos.length === 0) {
-        todoList.innerHTML = '<p>Odoo odoodoo daalgavar alga.</p>';
+        todoList.innerHTML = '<p>Одоогоор төлөвлөсөн даалгавар алга.</p>';
         return;
     }
 
@@ -44,13 +44,13 @@ function renderTodos(todos) {
         item.innerHTML = `
             <div>
                 <h3>${todo.title}</h3>
-                <p><strong>Tailbar:</strong> ${todo.description ?? ''}</p>
+                <p><strong>Тайлбар:</strong> ${todo.description ?? ''}</p>
                 <p>
-                    <strong>Ekhleh:</strong> ${todo.startDate ?? ''} |
-                    <strong>Duusgakh:</strong> ${todo.dueDate ?? ''}
+                    <strong>Эхлэх:</strong> ${todo.startDate ?? ''} |
+                    <strong>Дуусгах:</strong> ${todo.dueDate ?? ''}
                 </p>
             </div>
-            <button class="delete-btn" data-id="${todo.id}">Ustgah</button>
+            <button class="delete-btn" data-id="${todo.id}">Устгах</button>
         `;
 
         todoList.appendChild(item);
@@ -78,11 +78,11 @@ async function createTodo(newTodo) {
             await fetchTodos();
             todoForm.reset();
         } else {
-            console.error('Daalgavar uusgeh amjiltgui bolloo. Status:', response.status);
+            console.error('Даалгавар үүсгэх амжилтгүй боллоо. Статус:', response.status);
         }
 
     } catch (error) {
-        console.error('Daalgavar uusgehed aldaa garlaa:', error);
+        console.error('Даалгавар үүсгэхэд алдаа гарлаа:', error);
     }
 }
 
@@ -97,11 +97,11 @@ async function deleteTodo(id) {
         if (response.ok) {
             await fetchTodos();
         } else {
-            console.error('Ustgakh amjiltgui, Status:', response.status);
+            console.error('Устгах амжилтгүй боллоо. Статус:', response.status);
         }
 
     } catch (error) {
-        console.error('Daalgavar ustgakhad aldaa garlaa:', error);
+        console.error('Даалгавар устгахад алдаа гарлаа:', error);
     }
 }
 

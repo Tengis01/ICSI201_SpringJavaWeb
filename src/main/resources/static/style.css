@@ -12,14 +12,15 @@ body {
     color: #2c3e50; 
     display: flex;
     justify-content: center;
+    align-items: center;          /* ⬅️ container-аа босоо голлоно */
     min-height: 100vh; 
     background-color: #f5f7fa; 
-    /* ZURAG AVALAA GEJ UZEED, ZURAG DEERH DARK DAVHARGA */
     background-image: url('https://cdn.wallpapersafari.com/43/42/IwWBH3.jpg'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed; 
     position: relative;
+    overflow: hidden;             /* ⬅️ desktop дээр эхний үед page scroll байхгүй */
 }
 
 body::after {
@@ -39,18 +40,21 @@ body::after {
     max-width: 750px;
     background-color: rgba(255, 255, 255, 0.95); 
     padding: 30px 40px;
-    margin: 60px 0;
+    margin: 0 16px;               /* ⬅️ дээр доор margin авч хаяж, хажуу талд багахан зай */
     border-radius: 16px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); 
     z-index: 0;
+
+    max-height: 90vh;             /* ⬅️ card өөрөө дэлгэцний өндөрт багтана */
+    overflow-y: auto;             /* ⬅️ даалгавар олширвол card дотор scroll үүснэ */
 }
 
 /* Garchig */
 h2 {
     color: #0077b6; 
     border-bottom: 2px solid #e0f0ff;
-    padding-bottom: 10px;
-    margin-bottom: 25px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -61,16 +65,15 @@ h2::before {
     font-size: 1.2em;
 }
 
-/* INPUT / TEXTAREA: Width 100% bolon box-sizing-iig tohiruulj, ijil hemjee avah */
+/* INPUT / TEXTAREA / DATE */
 input[type="text"], textarea, input[type="date"] {
-    width: 100%; /* Delgets huraagdahad zov ajillahad tuslana */
+    width: 100%;
     padding: 14px;
     margin-bottom: 15px;
     border: 1px solid #ced4da;
     border-radius: 10px; 
     background-color: #fdfdfd;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); 
-    /* box-sizing: border-box n * deer zassan ch dahin todruulsan ni zuv */
     box-sizing: border-box; 
 }
 
@@ -80,34 +83,31 @@ input:focus, textarea:focus {
     outline: none;
 }
 
-/* 2. DATE GROUP HESGIIG TOHIRUULAH: Ognoonuudiig neg morond tsegtselne */
+/* 2. DATE GROUP */
 .date-group {
     display: flex;
-    gap: 15px; /* Elementuudiin dundah zai */
-    margin-bottom: 20px;
+    gap: 15px;
+    margin-bottom: 10px;
     align-items: center;
-    flex-wrap: wrap; /* Hemjee hurehgui bol deeree dooroo orohiig horiglovol zugeer, gexdee responsive baidlaar uldeev */
+    flex-wrap: wrap;
 }
 
-/* Ognoo bolon Label tush buriin hemjee */
 .date-group > * {
-    /* Bugd neg morond adilhan zai avah */
     flex: 1 1 0; 
-    min-width: 150px; /* Hamgiin baga hemjee (deh deer dooroo orohguigeer) */
+    min-width: 150px;
 }
 
 .date-group label {
-    /* Label-iig input-iin deer bish, zuvhun hajuud ni avah */
     display: block; 
     margin-bottom: 5px;
     font-weight: 600;
     color: #7f8c8d;
-    min-width: 100%; /* label buhel mor avah */
+    min-width: 100%;
 }
 
 .date-group input[type="date"] {
     width: 100%;
-    margin-bottom: 0; /* Input-iin dood margin-iig ustgah */
+    margin-bottom: 0;
 }
 
 /* Hadgalah Tovch */
@@ -130,13 +130,13 @@ button[type="submit"]:hover {
 }
 
 hr {
-    margin: 40px 0;
+    margin: 24px 0;
     border: 0;
     height: 1px;
     background-color: #dfe3e8;
 }
 
-/* TODO LIST ITEM ZAGVAR */
+/* TODO LIST ITEM */
 .todo-item {
     background-color: #ffffff;
     padding: 25px;
@@ -184,4 +184,37 @@ hr {
 .delete-btn:hover {
     background-color: #c0392b;
     opacity: 0.9;
+}
+
+/* 📱 MOBILE / TABLET RESPONSIVE */
+@media (max-width: 768px) {
+    body {
+        align-items: flex-start;   /* дээрээс доош урсдаг layout */
+        overflow: auto;           /* mobile дээр page өөрөө scroll-тай байг */
+        background-attachment: scroll; /* fixed background mobile дээр их асуудалтай байдаг */
+    }
+
+    .container {
+        width: 100%;
+        max-width: none;
+        margin: 16px;
+        padding: 20px 16px;
+        max-height: none;         /* card өндөрт баригдахгүй, бүхэлдээ scroll-доно */
+    }
+
+    .date-group {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .todo-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .delete-btn {
+        margin-left: 0;
+        margin-top: 12px;
+        align-self: flex-end;
+    }
 }
