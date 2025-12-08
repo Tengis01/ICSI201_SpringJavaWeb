@@ -22,3 +22,4 @@ MVC архитектурын баримталж байгаа болохоор т
 заавал маргааш оройдоо дуусгаарай яг гол холбох ажлыг би хийх болохоор 1дэхийн шөнө 3 4хүртэл та 2ийг хүлээж чадахгүй шүү яг маргаашдаа л дуусгаарай.
 Би 1 дэхийн үдээш хойш 5цагаас хойш хийнэ шүү болохгүй алдаа их гарч магадгүй.
 
+https://www.canva.com/design/DAG67OroUUo/GkxBm_0X-DPE3zvpW9LL-Q/edit?utm_content=DAG67OroUUo&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
